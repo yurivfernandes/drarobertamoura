@@ -1,10 +1,17 @@
 import { defineConfig } from 'vite'
+import legacy from '@vitejs/plugin-legacy'
 
 export default defineConfig({
   root: '.',
+  plugins: [
+    legacy({
+      targets: ['defaults', 'not IE 11']
+    })
+  ],
   build: {
     outDir: 'dist',
     assetsDir: 'assets',
+    minify: 'terser',
     rollupOptions: {
       output: {
         manualChunks: {
