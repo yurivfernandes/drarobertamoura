@@ -1,0 +1,24 @@
+{
+    "name": "portfolio-yuri",
+    "version": "1.0.0",
+    "description": "Portfólio pessoal de Yuri Fernandes",
+    "main": "index.html",
+    "type": "module",
+    "scripts": {
+        "start": "http-server",
+        "dev": "vite --host",
+        "prebuild": "npm install --no-package-lock",
+        "build": "npm install && bash build.sh",
+        "preview": "vite preview"
+    },
+    "dependencies": {
+        "gsap": "^3.12.7"
+    },
+    "devDependencies": {
+        "http-server": "^14.1.1",
+        "vite": "^4.5.2"
+    },
+    "engines": {
+        "node": ">=16.0.0"
+    }
+}
