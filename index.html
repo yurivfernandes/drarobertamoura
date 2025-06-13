@@ -76,69 +76,104 @@
     <script type="module" src="main.js"></script>
 
     <script>
-        // Carregar dados do JSON
-        fetch('./links.json')
-            .then(response => response.json())
-            .then(data => {
-                // Preencher meta tags
-                document.title = data.profile.name;
-                document.getElementById('page-title').textContent = data.profile.name;
-                document.getElementById('og-title').content = data.profile.name;
-                document.getElementById('og-description').content = data.meta.description;
-                document.getElementById('og-image').content = data.profile.image;
-                document.getElementById('og-url').content = data.meta.url;
-                document.getElementById('og-site-name').content = data.profile.name;
-                document.getElementById('meta-description').content = data.meta.description;
+        // Carregar dados do Markdown
+        const data = {
+            profile: {
+                name: "Dra. Roberta Gomes Moura",
+                title: "Cirurgiã Dentista - CRO-56861",
+                subtitle: "Harmonização Facial",
+                image: "./assets/experiencias.jpeg",
+                about: {
+                    text: [
+                        "Sou a Dra. Roberta Moura, cirurgiã dentista apaixonada pela harmonização facial. Dedico minha prática profissional a realçar a beleza natural de cada pessoa, sempre respeitando suas características únicas e individualidade.",
+                        "Com atendimentos em Contagem e Belo Horizonte, meu compromisso é oferecer um cuidado personalizado e humanizado, entendendo que cada paciente tem necessidades e desejos específicos. Acredito que a verdadeira beleza está no equilíbrio e na naturalidade dos resultados.",
+                        "Minha abordagem é focada em procedimentos sob medida, evitando exageros e sempre priorizando resultados harmônicos que preservam a autenticidade de cada rosto. Trabalho em parceria com meus pacientes, ouvindo atentamente seus objetivos para alcançar resultados que tragam satisfação e autoestima."
+                    ],
+                    image: "./assets/sobre.jpeg"
+                }
+            },
+            links: [
+                {
+                    title: "Agendar Consulta",
+                    url: "https://wa.me/5531975583013?text=Olá%20Dra%2C%20encontrei%20seu%20contato%20no%20site%2C%20gostaria%20de%20agendar%20uma%20consulta.",
+                    icon: "fab fa-whatsapp"
+                },
+                {
+                    title: "Instagram",
+                    url: "https://www.instagram.com/dra.robertagmoura/",
+                    icon: "fab fa-instagram"
+                },
+                {
+                    title: "Meu Site",
+                    url: "https://drarobertamoura.com.br",
+                    icon: "fas fa-globe"
+                }
+            ],
+            meta: {
+                description: "Dra. Roberta Moura - Cirurgiã Dentista especialista em Harmonização Facial",
+                url: "https://drarobertamoura.com.br"
+            }
+        };
 
-                // Preencher perfil
-                document.getElementById('profile-image').src = data.profile.image;
-                document.getElementById('profile-image').alt = data.profile.name;
-                document.getElementById('profile-name').textContent = data.profile.name;
-                document.getElementById('profile-title').textContent = data.profile.title;
-                document.getElementById('profile-subtitle').textContent = data.profile.subtitle;
+        // Remover o fetch e usar os dados direto
+        // Preencher meta tags
+        document.title = data.profile.name;
+        document.getElementById('page-title').textContent = data.profile.name;
+        document.getElementById('og-title').content = data.profile.name;
+        document.getElementById('og-description').content = data.meta.description;
+        document.getElementById('og-image').content = data.profile.image;
+        document.getElementById('og-url').content = data.meta.url;
+        document.getElementById('og-site-name').content = data.profile.name;
+        document.getElementById('meta-description').content = data.meta.description;
 
-                // Preencher sobre
-                const aboutText = document.getElementById('about-text');
-                data.profile.about.text.forEach(paragraph => {
-                    const p = document.createElement('p');
-                    p.textContent = paragraph;
-                    aboutText.appendChild(p);
-                });
-                document.getElementById('about-image').src = data.profile.about.image;
-                document.getElementById('about-image').alt = data.profile.name;
+        // Preencher perfil
+        document.getElementById('profile-image').src = data.profile.image;
+        document.getElementById('profile-image').alt = data.profile.name;
+        document.getElementById('profile-name').textContent = data.profile.name;
+        document.getElementById('profile-title').textContent = data.profile.title;
+        document.getElementById('profile-subtitle').textContent = data.profile.subtitle;
 
-                // Preencher links sociais (exceto "Meu Site") no header e footer
-                const headerSocial = document.getElementById('header-social');
-                const socialLinks = document.getElementById('social-links');
-                const footerSocial = document.getElementById('footer-social');
+        // Preencher sobre
+        const aboutText = document.getElementById('about-text');
+        data.profile.about.text.forEach(paragraph => {
+            const p = document.createElement('p');
+            p.textContent = paragraph;
+            aboutText.appendChild(p);
+        });
+        document.getElementById('about-image').src = data.profile.about.image;
+        document.getElementById('about-image').alt = data.profile.name;
 
-                data.links.forEach(link => {
-                    if (link.title !== "Meu Site") {
-                        // Criar link com ícone
-                        const createSocialLink = () => {
-                            const linkElement = document.createElement('a');
-                            linkElement.href = link.url;
-                            linkElement.target = "_blank";
-                            linkElement.rel = "noopener noreferrer";
-                            linkElement.title = link.title;
-                            linkElement.innerHTML = `<i class="${link.icon}"></i>`;
-                            return linkElement;
-                        };
+        // Preencher links sociais (exceto "Meu Site") no header e footer
+        const headerSocial = document.getElementById('header-social');
+        const socialLinks = document.getElementById('social-links');
+        const footerSocial = document.getElementById('footer-social');
 
-                        // Adicionar ao header
-                        headerSocial.appendChild(createSocialLink());
+        data.links.forEach(link => {
+            if (link.title !== "Meu Site") {
+                // Criar link com ícone
+                const createSocialLink = () => {
+                    const linkElement = document.createElement('a');
+                    linkElement.href = link.url;
+                    linkElement.target = "_blank";
+                    linkElement.rel = "noopener noreferrer";
+                    linkElement.title = link.title;
+                    linkElement.innerHTML = `<i class="${link.icon}"></i>`;
+                    return linkElement;
+                };
 
-                        // Adicionar ao hero
-                        socialLinks.appendChild(createSocialLink());
+                // Adicionar ao header
+                headerSocial.appendChild(createSocialLink());
 
-                        // Adicionar ao footer
-                        footerSocial.appendChild(createSocialLink());
-                    }
-                });
+                // Adicionar ao hero
+                socialLinks.appendChild(createSocialLink());
 
-                // Mostrar o body após carregar tudo
-                document.body.style.visibility = 'visible';
-            });
+                // Adicionar ao footer
+                footerSocial.appendChild(createSocialLink());
+            }
+        });
+
+        // Mostrar o body após carregar tudo
+        document.body.style.visibility = 'visible';
     </script>
 </body>
 
