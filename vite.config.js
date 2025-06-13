@@ -1,7 +1,14 @@
-import { defineConfig } from 'vite'
+import { defineConfig } from 'vite';
+import react from '@vitejs/plugin-react';
 
 export default defineConfig({
   root: '.',
+  plugins: [react()],
+  resolve: {
+    alias: {
+      '@': '/Users/yurivf/Documents/Projetos Pessoal/drarobertamoura'
+    }
+  },
   build: {
     outDir: 'dist',
     assetsDir: 'assets',
