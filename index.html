@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title id="page-title"></title>
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <!-- Meta tags Open Graph -->
+    <meta property="og:title" id="og-title">
+    <meta property="og:description" id="og-description">
+    <meta property="og:image" id="og-image">
+    <meta property="og:url" id="og-url">
+    <meta property="og:type" content="website">
+    <!-- Meta tags para WhatsApp -->
+    <meta property="og:site_name" id="og-site-name">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <meta name="description" id="meta-description">
+</head>
+
+<body style="visibility: hidden">
+    <nav>
+        <div class="nav-content">
+            <ul>
+                <li><a href="#home" class="active">Home</a></li>
+                <li><a href="#sobre">Sobre</a></li>
+            </ul>
+            <div class="header-social" id="header-social">
+                <!-- Removido o botão theme-toggle -->
+                <!-- Links sociais serão inseridos via JavaScript -->
+            </div>
+        </div>
+    </nav>
+
+    <section id="home">
+        <div class="hero">
+            <img id="profile-image" alt="">
+            <h1 id="profile-name"></h1>
+            <p id="profile-title"></p>
+            <p id="profile-subtitle"></p>
+            <div class="social-links" id="social-links">
+                <!-- Links sociais serão inseridos via JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <section id="sobre">
+        <h2>Sobre Mim</h2>
+        <div class="about-content">
+            <div class="about-text" id="about-text">
+                <!-- Parágrafos serão inseridos via JavaScript -->
+            </div>
+            <div class="about-photo">
+                <img id="about-image" alt="">
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <p>© 2025 Dra. Roberta Gomes Moura</p>
+            <div class="footer-social" id="footer-social">
+                <!-- Links sociais serão inseridos via JavaScript -->
+            </div>
+            <a href="#home" class="back-to-top" title="Voltar ao topo"><i class="fas fa-arrow-up"></i></a>
+        </div>
+    </footer>
+
+    <!-- Carregando GSAP e outros scripts no final do documento -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <script type="module" src="main.js"></script>
+
+    <script>
+        // Carregar dados do JSON
+        fetch('/data/links.json')
+            .then(response => response.json())
+            .then(data => {
+                // Preencher meta tags
+                document.title = data.profile.name;
+                document.getElementById('page-title').textContent = data.profile.name;
+                document.getElementById('og-title').content = data.profile.name;
+                document.getElementById('og-description').content = data.meta.description;
+                document.getElementById('og-image').content = data.profile.image;
+                document.getElementById('og-url').content = data.meta.url;
+                document.getElementById('og-site-name').content = data.profile.name;
+                document.getElementById('meta-description').content = data.meta.description;
+
+                // Preencher perfil
+                document.getElementById('profile-image').src = data.profile.image;
+                document.getElementById('profile-image').alt = data.profile.name;
+                document.getElementById('profile-name').textContent = data.profile.name;
+                document.getElementById('profile-title').textContent = data.profile.title;
+                document.getElementById('profile-subtitle').textContent = data.profile.subtitle;
+
+                // Preencher sobre
+                const aboutText = document.getElementById('about-text');
+                data.profile.about.text.forEach(paragraph => {
+                    const p = document.createElement('p');
+                    p.textContent = paragraph;
+                    aboutText.appendChild(p);
+                });
+                document.getElementById('about-image').src = data.profile.about.image;
+                document.getElementById('about-image').alt = data.profile.name;
+
+                // Preencher links sociais (exceto "Meu Site") no header e footer
+                const headerSocial = document.getElementById('header-social');
+                const socialLinks = document.getElementById('social-links');
+                const footerSocial = document.getElementById('footer-social');
+
+                data.links.forEach(link => {
+                    if (link.title !== "Meu Site") {
+                        // Criar link com ícone
+                        const createSocialLink = () => {
+                            const linkElement = document.createElement('a');
+                            linkElement.href = link.url;
+                            linkElement.target = "_blank";
+                            linkElement.rel = "noopener noreferrer";
+                            linkElement.title = link.title;
+                            linkElement.innerHTML = `<i class="${link.icon}"></i>`;
+                            return linkElement;
+                        };
+
+                        // Adicionar ao header
+                        headerSocial.appendChild(createSocialLink());
+
+                        // Adicionar ao hero
+                        socialLinks.appendChild(createSocialLink());
+
+                        // Adicionar ao footer
+                        footerSocial.appendChild(createSocialLink());
+                    }
+                });
+
+                // Mostrar o body após carregar tudo
+                document.body.style.visibility = 'visible';
+            });
+    </script>
+</body>
+
+</html>
