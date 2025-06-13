@@ -2,29 +2,24 @@
     "name": "dra-roberta-moura",
     "version": "1.0.0",
     "description": "Site profissional da Dra. Roberta Gomes Moura - Harmonização Facial",
-    "main": "index.html",
     "type": "module",
     "scripts": {
-        "start": "vite",
         "dev": "vite",
         "build": "vite build",
-        "preview": "vite preview",
-        "clean": "rm -rf node_modules package-lock.json && npm install"
+        "preview": "vite preview"
     },
     "dependencies": {
         "gsap": "^3.12.7"
     },
     "devDependencies": {
-        "vite": "^5.0.0",
-        "@vitejs/plugin-legacy": "^5.0.0",
-        "terser": "^5.24.0"
+        "vite": "^5.0.12",
+        "@vitejs/plugin-legacy": "^5.2.0",
+        "terser": "^5.24.0",
+        "@babel/core": "^7.23.7",
+        "@babel/preset-env": "^7.23.7",
+        "browserslist": "^4.22.2"
     },
     "engines": {
-        "node": ">=16.0.0"
-    },
-    "browserslist": [
-        ">0.2%",
-        "not dead",
-        "not op_mini all"
-    ]
+        "node": ">=18.0.0"
+    }
 }

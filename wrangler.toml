@@ -1,0 +1,9 @@
+name = "dra-roberta-moura"
+main = "./dist/index.html"
+compatibility_date = "2024-01-16"
+
+[site]
+bucket = "./dist"
+
+[build]
+command = "npm run build"
