@@ -18,7 +18,19 @@ const data = {
             ],
             image: "https://raw.githubusercontent.com/yurivfernandes/drarobertamoura/refs/heads/main/public/fotos/sobre.jpeg"
         }
-    }
+    },
+    links: [
+        {
+            title: "WhatsApp",
+            url: "https://wa.me/5531975583013?text=Olá%20Dra%2C%20encontrei%20seu%20contato%20no%20site%2C%20gostaria%20de%20agendar%20uma%20consulta.",
+            icon: "fab fa-whatsapp"
+        },
+        {
+            title: "Instagram",
+            url: "https://www.instagram.com/dra.robertagmoura/",
+            icon: "fab fa-instagram"
+        }
+    ]
 };
 
 const HomePage = () => {
@@ -71,13 +83,26 @@ const HomePage = () => {
 
     return (
         <div>
-            <nav>
+            <nav style={{ width: '100%' }}>
                 <div className="nav-content">
                     <ul>
                         <li><a href="#home" className="active">Home</a></li>
                         <li><a href="#sobre">Sobre</a></li>
                     </ul>
-                    <div className="header-social" id="header-social" />
+                    <div className="header-social" id="header-social">
+                        {data.links.map(link => (
+                            <a 
+                                key={link.title} 
+                                href={link.url} 
+                                target="_blank" 
+                                rel="noopener noreferrer" 
+                                title={link.title}
+                                style={{ color: 'black' }}
+                            >
+                                <i className={link.icon}></i>
+                            </a>
+                        ))}
+                    </div>
                 </div>
             </nav>
             <section id="home">
@@ -86,6 +111,20 @@ const HomePage = () => {
                     <h1 id="profile-name">{data.profile.name}</h1>
                     <p id="profile-title">{data.profile.title}</p>
                     <p id="profile-subtitle">{data.profile.subtitle}</p>
+                    <div className="social-links">
+                        {data.links.map(link => (
+                            <a 
+                                key={link.title} 
+                                href={link.url} 
+                                target="_blank" 
+                                rel="noopener noreferrer" 
+                                title={link.title}
+                                style={{ color: 'black' }}
+                            >
+                                <i className={link.icon}></i>
+                            </a>
+                        ))}
+                    </div>
                 </div>
             </section>
             <section id="sobre" ref={aboutRef}>
@@ -109,7 +148,20 @@ const HomePage = () => {
             <footer>
                 <div className="footer-content">
                     <p>© 2025 Dra. Roberta Gomes Moura</p>
-                    <div className="footer-social" id="footer-social" />
+                    <div className="footer-social" id="footer-social">
+                        {data.links.map(link => (
+                            <a 
+                                key={link.title} 
+                                href={link.url} 
+                                target="_blank" 
+                                rel="noopener noreferrer" 
+                                title={link.title}
+                                style={{ color: 'black' }}
+                            >
+                                <i className={link.icon}></i>
+                            </a>
+                        ))}
+                    </div>
                     <a href="#home" className="back-to-top" title="Voltar ao topo">
                         <i className="fas fa-arrow-up"></i>
                     </a>

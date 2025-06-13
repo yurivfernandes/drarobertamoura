@@ -48,7 +48,7 @@ body::after {
 nav {
     position: fixed;
     top: 0;
-    width: 100%;
+    width: 100%; /* Garantir largura total */
     background: rgba(0, 0, 0, 0.8);
     backdrop-filter: blur(10px);
     z-index: 1000;
@@ -322,8 +322,9 @@ nav {
 
 /* Estilos para os ícones de redes sociais na header e hero */
 .header-social a,
-.social-links a {
-  color: #46352B;
+.social-links a,
+.footer-social a {
+  color: black; /* Ajustar cor dos ícones para preto */
   font-size: 1.5rem;
   margin-left: 0.5rem; /* Espaçamento reduzido entre os ícones */
   transition: color 0.3s ease;
