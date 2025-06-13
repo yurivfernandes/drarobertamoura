@@ -10,9 +10,10 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <!-- Adicionar biblioteca js-yaml -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/js-yaml/4.1.0/js-yaml.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
 </head>
 
-<body>
+<body style="opacity: 0">
     <div class="container">
         <div class="profile">
             <img id="profile-img"
@@ -39,6 +40,48 @@
             </a>
         </div>
     </div>
+    <script>
+        // Configurar animações assim que a página carregar
+        document.addEventListener('DOMContentLoaded', () => {
+            // Configurar elementos para começarem invisíveis
+            gsap.set('.profile img', { scale: 0.8, opacity: 0 });
+            gsap.set('.profile h1, .profile h2, .profile p', { y: 20, opacity: 0 });
+            gsap.set('.links a', { y: 20, opacity: 0 });
+
+            // Timeline para controlar a sequência de animações
+            const tl = gsap.timeline();
+
+            // Mostrar o body mais rapidamente
+            tl.to('body', {
+                opacity: 1,
+                duration: 0.2, // Reduzido de 0.4 para 0.2
+                ease: 'power2.out'
+            })
+            // Animar foto do perfil mais rapidamente
+            .to('.profile img', {
+                scale: 1,
+                opacity: 1,
+                duration: 0.5, // Reduzido de 0.8 para 0.5
+                ease: 'power2.out'
+            })
+            // Animar textos do perfil com menor delay entre elementos
+            .to('.profile h1, .profile h2, .profile p', {
+                y: 0,
+                opacity: 1,
+                duration: 0.4, // Reduzido de 0.8 para 0.4
+                stagger: 0.1, // Reduzido de 0.2 para 0.1
+                ease: 'power2.out'
+            })
+            // Animar links mais rapidamente
+            .to('.links a', {
+                y: 0,
+                opacity: 1,
+                duration: 0.3, // Reduzido de 0.6 para 0.3
+                stagger: 0.1, // Reduzido de 0.2 para 0.1
+                ease: 'power2.out'
+            });
+        });
+    </script>
 </body>
 
 </html>

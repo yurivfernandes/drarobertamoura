@@ -1,4 +1,8 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
+import gsap from 'gsap';
+import ScrollTrigger from 'gsap/ScrollTrigger';
+
+gsap.registerPlugin(ScrollTrigger);
 
 const data = {
     profile: {
@@ -17,50 +21,102 @@ const data = {
     }
 };
 
-const HomePage = () => (
-    <div>
-        <nav>
-            <div className="nav-content">
-                <ul>
-                    <li><a href="#home" className="active">Home</a></li>
-                    <li><a href="#sobre">Sobre</a></li>
-                </ul>
-                <div className="header-social" id="header-social">
-                    {/* Links sociais serão inseridos via JavaScript */}
+const HomePage = () => {
+    const aboutRef = useRef(null);
+
+    useEffect(() => {
+        // Configurar elementos da seção "Sobre Mim" para começarem invisíveis
+        gsap.set('#sobre .about-text p', { opacity: 0, y: 30 });
+        gsap.set('#sobre .about-photo', { opacity: 0, x: 50 });
+
+        // Animação para a seção hero
+        gsap.from('.hero img', {
+            y: 30,
+            opacity: 0,
+            duration: 0.8,
+            ease: 'power2.out',
+        });
+
+        gsap.from('.hero h1, .hero p', {
+            y: 20,
+            opacity: 0,
+            duration: 0.6,
+            stagger: 0.2,
+            ease: 'power2.out',
+        });
+
+        // Animação para a seção sobre
+        ScrollTrigger.create({
+            trigger: '#sobre',
+            start: 'top center+=100',
+            onEnter: () => {
+                gsap.to('#sobre .about-text p', {
+                    opacity: 1,
+                    y: 0,
+                    duration: 0.8,
+                    stagger: 0.2,
+                    ease: 'power2.out',
+                });
+
+                gsap.to('#sobre .about-photo', {
+                    opacity: 1,
+                    x: 0,
+                    duration: 0.8,
+                    ease: 'power2.out',
+                });
+            },
+            once: true
+        });
+    }, []);
+
+    return (
+        <div>
+            <nav>
+                <div className="nav-content">
+                    <ul>
+                        <li><a href="#home" className="active">Home</a></li>
+                        <li><a href="#sobre">Sobre</a></li>
+                    </ul>
+                    <div className="header-social" id="header-social" />
                 </div>
-            </div>
-        </nav>
-        <section id="home">
-            <div className="hero">
-                <img id="profile-image" src={data.profile.image} alt={data.profile.name} />
-                <h1 id="profile-name">{data.profile.name}</h1>
-                <p id="profile-title">{data.profile.title}</p>
-                <p id="profile-subtitle">{data.profile.subtitle}</p>
-            </div>
-        </section>
-        <section id="sobre">
-            <h2>Sobre Mim</h2>
-            <div className="about-content">
-                <div className="about-text" id="about-text">
-                    {data.profile.about.text.map((paragraph, index) => (
-                        <p key={index}>{paragraph}</p>
-                    ))}
+            </nav>
+            <section id="home">
+                <div className="hero">
+                    <img id="profile-image" src={data.profile.image} alt={data.profile.name} />
+                    <h1 id="profile-name">{data.profile.name}</h1>
+                    <p id="profile-title">{data.profile.title}</p>
+                    <p id="profile-subtitle">{data.profile.subtitle}</p>
                 </div>
-                <div className="about-photo">
-                    <img id="about-image" src={data.profile.about.image} alt={data.profile.name} />
+            </section>
+            <section id="sobre" ref={aboutRef}>
+                <h2>Sobre Mim</h2>
+                <div className="about-content">
+                    <div className="about-text" id="about-text">
+                        {data.profile.about.text.map((paragraph, index) => (
+                            <p key={index}>{paragraph}</p>
+                        ))}
+                    </div>
+                    <div className="about-photo">
+                        <img 
+                            id="about-image" 
+                            src={data.profile.about.image} 
+                            alt={data.profile.name}
+                            style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                        />
+                    </div>
                 </div>
-            </div>
-        </section>
-        <footer>
-            <div className="footer-content">
-                <p>© 2025 Dra. Roberta Gomes Moura</p>
-                <div className="footer-social" id="footer-social">
-                    {/* Links sociais serão inseridos via JavaScript */}
+            </section>
+            <footer>
+                <div className="footer-content">
+                    <p>© 2025 Dra. Roberta Gomes Moura</p>
+                    <div className="footer-social" id="footer-social" />
+                    <a href="#home" className="back-to-top" title="Voltar ao topo">
+                        <i className="fas fa-arrow-up"></i>
+                    </a>
                 </div>
-                <a href="#home" className="back-to-top" title="Voltar ao topo"><i className="fas fa-arrow-up"></i></a>
-            </div>
-        </footer>
-    </div>
-);
+            </footer>
+        </div>
+    );
+};
 
 export default HomePage;
