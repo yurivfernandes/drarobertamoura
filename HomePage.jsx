@@ -57,6 +57,15 @@ const HomePage = () => {
             ease: 'power2.out',
         });
 
+        gsap.from('.hero .social-links a', {
+            y: 20,
+            opacity: 0,
+            duration: 0.6,
+            stagger: 0.2,
+            ease: 'power2.out',
+            delay: 1.2, // Garantir que os ícones apareçam após o texto
+        });
+
         // Animação para a seção sobre
         ScrollTrigger.create({
             trigger: '#sobre',

@@ -49,6 +49,8 @@ nav {
     position: fixed;
     top: 0;
     width: 100%; /* Garantir largura total */
+    left: 0; /* Corrigir deslocamento */
+    margin: 0; /* Remover margens */
     background: rgba(0, 0, 0, 0.8);
     backdrop-filter: blur(10px);
     z-index: 1000;
@@ -63,7 +65,7 @@ nav {
 
 .nav-content {
     max-width: 1200px;
-    margin: 0 auto;
+    margin: 0 auto; /* Centralizar conteúdo */
     padding: 1rem;
     display: flex;
     justify-content: space-between;
