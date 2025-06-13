@@ -6,7 +6,7 @@ gsap.registerPlugin(ScrollTrigger);
 
 const data = {
     profile: {
-        image: "https://raw.githubusercontent.com/yurivfernandes/drarobertamoura/refs/heads/main/public/fotos/hero.jpeg",
+        image: "https://raw.githubusercontent.com/yurivfernandes/drarobertamoura/refs/heads/main/public/fotos/hero.jpeghttps://raw.githubusercontent.com/yurivfernandes/drarobertamoura/refs/heads/main/public/fotos/experi%C3%AAncias.jpeg",
         name: "Dra. Roberta Gomes Moura",
         title: "Cirurgiã Dentista - CRO-56861",
         subtitle: "Harmonização Facial",
