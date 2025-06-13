@@ -1,22 +1,26 @@
 {
-    "name": "portfolio-yuri",
+    "name": "dra-roberta-moura",
     "version": "1.0.0",
-    "description": "Portfólio pessoal de Yuri Fernandes",
+    "description": "Site profissional da Dra. Roberta Gomes Moura - Harmonização Facial",
     "main": "index.html",
     "type": "module",
     "scripts": {
-        "start": "http-server",
+        "start": "http-server -p 3000 --cors",
         "dev": "vite --host",
         "prebuild": "npm install --no-package-lock",
-        "build": "npm install && bash build.sh",
+        "build": "vite build",
         "preview": "vite preview"
     },
     "dependencies": {
-        "gsap": "^3.12.7"
+        "gsap": "^3.12.7",
+        "fontawesome": "^5.6.3",
+        "animate.css": "^4.1.1"
     },
     "devDependencies": {
         "http-server": "^14.1.1",
-        "vite": "^4.5.2"
+        "vite": "^4.5.2",
+        "@vitejs/plugin-legacy": "^4.1.1",
+        "rollup": "^3.29.5"
     },
     "engines": {
         "node": ">=16.0.0"
