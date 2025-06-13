@@ -15,47 +15,26 @@
 <body>
     <div class="container">
         <div class="profile">
-            <img id="profile-img" src="" alt="Foto de Perfil">
-            <h1 id="profile-name"></h1>
-            <h2 id="profile-title"></h2>
-            <p id="profile-subtitle"></p>
+            <img id="profile-img" src="https://raw.githubusercontent.com/yurivfernandes/drarobertamoura/refs/heads/main/public/fotos/hero.jpeg" alt="Foto de Perfil">
+            <h1>Dra. Roberta Gomes Moura</h1>
+            <h2>Cirurgiã Dentista - CRO-56861</h2>
+            <p>Harmonização Facial</p>
         </div>
-        <div class="links" id="links-container">
-            <!-- Links serão inseridos aqui via JavaScript -->
+        <div class="links">
+            <a href="https://wa.me/5531975583013?text=Olá%20Dra%2C%20encontrei%20seu%20contato%20no%20site%2C%20gostaria%20de%20agendar%20uma%20consulta." class="link-item" target="_blank" rel="noopener noreferrer">
+                <i class="fab fa-whatsapp"></i>
+                <span>Agendar Consulta</span>
+            </a>
+            <a href="https://www.instagram.com/dra.robertagmoura/" class="link-item" target="_blank" rel="noopener noreferrer">
+                <i class="fab fa-instagram"></i>
+                <span>Instagram</span>
+            </a>
+            <a href="https://drarobertamoura.com.br" class="link-item" target="_blank" rel="noopener noreferrer">
+                <i class="fas fa-globe"></i>
+                <span>Meu Site</span>
+            </a>
         </div>
     </div>
-    <script src="links.js"></script>
-    <script>
-        fetch('../index.md')  // Alterado para apontar para o index.md na raiz
-            .then(response => response.text())
-            .then(text => {
-                const yamlContent = text.split('---')[1];
-                const data = jsyaml.load(yamlContent);
-
-                // Atualizar informações do perfil
-                document.getElementById('profile-img').src = data.profile.image;
-                document.getElementById('profile-name').textContent = data.profile.name;
-                document.getElementById('profile-title').textContent = data.profile.title;
-                document.getElementById('profile-subtitle').textContent = data.profile.subtitle;
-
-                // Criar links
-                const linksContainer = document.getElementById('links-container');
-                data.links.forEach(link => {
-                    const linkElement = document.createElement('a');
-                    linkElement.href = link.url;
-                    linkElement.className = 'link-item';
-                    linkElement.target = '_blank';
-                    linkElement.rel = 'noopener noreferrer';
-
-                    linkElement.innerHTML = `
-                        <i class="${link.icon}"></i>
-                        <span>${link.title}</span>
-                    `;
-
-                    linksContainer.appendChild(linkElement);
-                });
-            });
-    </script>
 </body>
 
 </html>
