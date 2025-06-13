@@ -77,7 +77,7 @@
 
     <script>
         // Carregar dados do JSON
-        fetch('/data/links.json')
+        fetch('./data/links.json') // Alterando para caminho relativo
             .then(response => response.json())
             .then(data => {
                 // Preencher meta tags

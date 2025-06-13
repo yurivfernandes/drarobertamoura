@@ -1,6 +1,7 @@
 document.addEventListener('DOMContentLoaded', async () => {
     try {
-        const response = await fetch('/data/links.json');
+        // Alterando para um caminho relativo
+        const response = await fetch('../data/links.json');
         const data = await response.json();
         
         // Atualizar informações do perfil
