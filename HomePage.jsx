@@ -171,9 +171,18 @@ const HomePage = () => {
                             </a>
                         ))}
                     </div>
-                    <a href="#home" className="back-to-top" title="Voltar ao topo">
-                        <i className="fas fa-arrow-up"></i>
-                    </a>
+                    <div className="developer-info">
+                        <p>Desenvolvido por Yuri Fernandes</p>
+                        <a 
+                            href="https://wa.me/5531987798823?text=Olá,%20quero%20fazer%20meu%20site" 
+                            target="_blank" 
+                            rel="noopener noreferrer" 
+                            title="WhatsApp do Desenvolvedor"
+                            style={{ color: 'black' }}
+                        >
+                            <i className="fab fa-whatsapp"></i>
+                        </a>
+                    </div>
                 </div>
             </footer>
         </div>

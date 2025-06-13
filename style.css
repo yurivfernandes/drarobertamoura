@@ -707,6 +707,26 @@ section h2, .project-card, .experience-photo, .experience-item, .contact-info {
     width: auto;
 }
 
+.developer-info {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.9rem;
+    color: var(--text);
+    justify-content: center; /* Alinhar horizontalmente */
+}
+
+.developer-info a {
+    color: black; /* Cor preta para o ícone */
+    text-decoration: none;
+    font-size: 1.2rem;
+    transition: color 0.3s ease;
+}
+
+.developer-info a:hover {
+    color: var(--primary); /* Cor primária ao passar o mouse */
+}
+
 /* Remover cursor personalizado */
 a, button {
     cursor: pointer;
@@ -1080,8 +1100,9 @@ footer {
     max-width: 1200px;
     margin: 0 auto;
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
     align-items: center;
+    gap: 1rem;
     padding: 0 2rem;
 }
 
@@ -1093,13 +1114,32 @@ footer {
 }
 
 .footer-social a {
-    color: var(--text-primary);
+    color: var(--text); /* Cor inicial */
+    text-decoration: none;
     font-size: 1.5rem;
-    transition: color 0.3s ease;
+    transition: all 0.3s ease; /* Transição suave */
+    position: relative;
+}
+
+.footer-social a::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--primary);
+    transition: width 0.3s ease; /* Animação de largura */
+    box-shadow: 0 0 8px var(--primary-glow);
+}
+
+.footer-social a:hover::before {
+    width: 100%; /* Expandir linha ao passar o mouse */
 }
 
 .footer-social a:hover {
-    color: var(--primary);
+    color: var(--primary); /* Alterar cor ao passar o mouse */
+    text-shadow: 0 0 10px var(--primary-glow); /* Adicionar efeito de brilho */
 }
 
 .back-to-top {
