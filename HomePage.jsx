@@ -2,10 +2,11 @@ import React, { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import ScrollTrigger from 'gsap/ScrollTrigger';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Navigation, EffectFade } from 'swiper/modules';
+import { Navigation, EffectFade, Pagination } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/effect-fade';
+import 'swiper/css/pagination';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -81,6 +82,48 @@ const data = {
             description: "Harmonização Facial"
         },
         // Adicione mais pares de imagens conforme necessário
+    ],
+    testimonials: [
+        {
+            text: "Estou simplesmente apaixonada pelo resultado! Ficou super natural, exatamente como eu queria. Me sinto muito mais confiante agora.",
+            author: "Monica Brito",
+            location: "Contagem - MG"
+        },
+        {
+            text: "Tinha medo de ficar artificial, mas me surpreendi. O resultado foi sutil, harmonioso e realçou meus traços sem exageros.",
+            author: "Pedro Fialho",
+            location: "Belo Horizonte - MG"
+        },
+        {
+            text: "O melhor investimento que fiz em mim mesma! Todo mundo comenta como estou mais bonita, descansada e sem saber exatamente o que mudei.",
+            author: "Beatriz Santos",
+            location: "Contagem - MG"
+        },
+        {
+            text: "Amei cada detalhe! Meu rosto ficou mais simétrico, mais jovem e ainda assim super natural. Gratidão pela sua mão maravilhosa.",
+            author: "Luisa Mariano",
+            location: "Nova Lima - MG"
+        },
+        {
+            text: "Minha autoestima foi nas alturas! Sempre me incomodei com meu queixo e agora me olho no espelho e me sinto maravilhosa. Obrigada por tanto cuidado.",
+            author: "Carolina Mendes",
+            location: "Nova Lima - MG"
+        },
+        {
+            text: "O atendimento, o carinho e principalmente o resultado foram impecáveis. Hoje me sinto muito mais segura e feliz com minha aparência.",
+            author: "Marina Costa",
+            location: "Belo Horizonte - MG"
+        },
+        {
+            text: "Consegui aquele efeito lifting sem cirurgia que tanto queria. Pele mais firme, rosto mais desenhado… mudou minha vida!",
+            author: "Angela Maria",
+            location: "Belo Horizonte - MG"
+        },
+        {
+            text: "Melhor decisão que eu poderia ter tomado. Meu rosto ficou mais harmônico, meus traços valorizados e minha autoestima renovada. Recomendo de olhos fechados!",
+            author: "Renata Oliveira",
+            location: "Contagem - MG"
+        }
     ]
 };
 
@@ -240,6 +283,45 @@ const HomePage = () => {
                                     <div className="before-after-item">
                                         <img src={item.after} alt="Depois" />
                                         <span className="label">Depois</span>
+                                    </div>
+                                </div>
+                            </SwiperSlide>
+                        ))}
+                    </Swiper>
+                </div>
+            </section>
+            <section id="depoimentos">
+                <h2>Depoimentos</h2>
+                <div className="testimonials-container">
+                    <Swiper
+                        modules={[Navigation, Pagination]}
+                        pagination={{ clickable: true }}
+                        slidesPerView={3}
+                        spaceBetween={20}
+                        breakpoints={{
+                            320: {
+                                slidesPerView: 1,
+                                spaceBetween: 20
+                            },
+                            768: {
+                                slidesPerView: 2,
+                                spaceBetween: 20
+                            },
+                            1024: {
+                                slidesPerView: 3,
+                                spaceBetween: 20
+                            }
+                        }}
+                        className="testimonials-slider"
+                    >
+                        {data.testimonials.map((testimonial, index) => (
+                            <SwiperSlide key={index}>
+                                <div className="testimonial-card">
+                                    <i className="fas fa-quote-left quote-icon"></i>
+                                    <p className="testimonial-text">{testimonial.text}</p>
+                                    <div className="testimonial-author">
+                                        <strong>{testimonial.author}</strong>
+                                        <span>{testimonial.location}</span>
                                     </div>
                                 </div>
                             </SwiperSlide>
