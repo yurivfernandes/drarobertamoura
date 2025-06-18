@@ -116,6 +116,11 @@ const data = {
             text: "Melhor decisão que eu poderia ter tomado. Meu rosto ficou mais harmônico, meus traços valorizados e minha autoestima renovada. Recomendo de olhos fechados!",
             author: "Renata Oliveira",
             location: "Contagem - MG"
+        },
+        {
+            text: "Nunca imaginei que pequenas mudanças fariam tanta diferença na minha autoestima. Me sinto muito mais confiante e realizada. Amei cada detalhe!",
+            author: "Isabela Coelho",
+            location: "Belo Horizonte - MG"
         }
     ]
 };
