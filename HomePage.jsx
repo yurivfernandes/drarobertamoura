@@ -214,6 +214,15 @@ const HomePage = () => {
                     <h1 id="profile-name">{data.profile.name}</h1>
                     <p id="profile-title">{data.profile.title}</p>
                     <p id="profile-subtitle">{data.profile.subtitle}</p>
+                    <a 
+                        href="https://wa.me/5531975583013?text=Olá%20Dra%2C%20gostaria%20de%20tirar%20algumas%20dúvidas%20e%20fazer%20um%20agendamento"
+                        className="cta-button"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        <i className="fab fa-whatsapp"></i>
+                        CLIQUE AQUI PARA DÚVIDAS E AGENDAMENTOS
+                    </a>
                     <div className="social-links">
                         {data.links.map(link => (
                             <a 
@@ -247,6 +256,15 @@ const HomePage = () => {
                         />
                     </div>
                 </div>
+                <a 
+                    href="https://wa.me/5531975583013?text=Olá%20Dra%2C%20gostaria%20de%20tirar%20algumas%20dúvidas%20e%20fazer%20um%20agendamento"
+                    className="cta-button section-cta"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    <i className="fab fa-whatsapp"></i>
+                    CLIQUE AQUI PARA DÚVIDAS E AGENDAMENTOS
+                </a>
             </section>
             <section id="procedimentos">
                 <h2>Procedimentos</h2>
@@ -288,6 +306,15 @@ const HomePage = () => {
                             </SwiperSlide>
                         ))}
                     </Swiper>
+                    <a 
+                        href="https://wa.me/5531975583013?text=Olá%20Dra%2C%20gostaria%20de%20tirar%20algumas%20dúvidas%20e%20fazer%20um%20agendamento"
+                        className="cta-button section-cta"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        <i className="fab fa-whatsapp"></i>
+                        CLIQUE AQUI PARA DÚVIDAS E AGENDAMENTOS
+                    </a>
                 </div>
             </section>
             <section id="depoimentos">
@@ -327,6 +354,15 @@ const HomePage = () => {
                             </SwiperSlide>
                         ))}
                     </Swiper>
+                    <a 
+                        href="https://wa.me/5531975583013?text=Olá%20Dra%2C%20gostaria%20de%20tirar%20algumas%20dúvidas%20e%20fazer%20um%20agendamento"
+                        className="cta-button section-cta"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        <i className="fab fa-whatsapp"></i>
+                        CLIQUE AQUI PARA DÚVIDAS E AGENDAMENTOS
+                    </a>
                 </div>
             </section>
             <footer>
