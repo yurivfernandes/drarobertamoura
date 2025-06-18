@@ -66,13 +66,6 @@ const data = {
                 "Aumento da firmeza da pele",
                 "Estímulo de colágeno natural"
             ]
-        },
-        rhinomodeling: {
-            title: "Rinomodelação",
-            icon: "fas fa-wand-sparkles", // Ícone de varinha mágica com brilhos
-            items: [
-                "Correção estética do nariz com ácido hialurônico"
-            ]
         }
     },
     beforeAfter: [
