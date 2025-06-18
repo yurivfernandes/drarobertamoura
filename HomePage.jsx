@@ -1,12 +1,17 @@
 import React, { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import ScrollTrigger from 'gsap/ScrollTrigger';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Navigation, EffectFade } from 'swiper/modules';
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/effect-fade';
 
 gsap.registerPlugin(ScrollTrigger);
 
 const data = {
     profile: {
-        image: "https://raw.githubusercontent.com/yurivfernandes/drarobertamoura/refs/heads/main/public/fotos/hero.jpeghttps://raw.githubusercontent.com/yurivfernandes/drarobertamoura/refs/heads/main/public/fotos/experi%C3%AAncias.jpeg",
+        image: "https://raw.githubusercontent.com/yurivfernandes/drarobertamoura/refs/heads/main/public/fotos/experi%C3%AAncias.jpeg",
         name: "Dra. Roberta Gomes Moura",
         title: "Cirurgiã Dentista - CRO-56861",
         subtitle: "Harmonização Facial",
@@ -30,6 +35,52 @@ const data = {
             url: "https://www.instagram.com/dra.robertagmoura/",
             icon: "fab fa-instagram"
         }
+    ],
+    procedures: {
+        fillers: {
+            title: "Preenchimento com Ácido Hialurônico",
+            icon: "fas fa-droplet", // Ícone mais moderno de gota
+            items: [
+                "Mandíbula", "Queixo", "Lábios", "Olheiras", "Têmporas",
+                "Sulco nasolabial (bigode chinês)", 
+                "Sulco labiomentoniano (linhas de marionete)",
+                "Nariz (rinomodelação)", "Malar (maçã do rosto)"
+            ]
+        },
+        botox: {
+            title: "Toxina Botulínica (Botox)",
+            icon: "fas fa-spa", // Ícone que representa bem-estar e rejuvenescimento
+            items: [
+                "Suavização de linhas de expressão (testa, glabela, pés de galinha)",
+                "Elevação da cauda da sobrancelha (lifting de sobrancelha)",
+                "Sorriso gengival", "Bruxismo", "Enxaqueca"
+            ]
+        },
+        collagen: {
+            title: "Bioestimuladores de Colágeno",
+            icon: "fas fa-sync", // Ícone que representa renovação
+            items: [
+                "Sculptra, Radiesse, Ellansé, Rennova Diamond",
+                "Melhora da flacidez",
+                "Aumento da firmeza da pele",
+                "Estímulo de colágeno natural"
+            ]
+        },
+        rhinomodeling: {
+            title: "Rinomodelação",
+            icon: "fas fa-wand-sparkles", // Ícone de varinha mágica com brilhos
+            items: [
+                "Correção estética do nariz com ácido hialurônico"
+            ]
+        }
+    },
+    beforeAfter: [
+        {
+            before: "/images/before1.jpg",
+            after: "/images/after1.jpg",
+            description: "Harmonização Facial"
+        },
+        // Adicione mais pares de imagens conforme necessário
     ]
 };
 
@@ -152,6 +203,48 @@ const HomePage = () => {
                             style={{ width: '100%', height: '100%', objectFit: 'cover' }}
                         />
                     </div>
+                </div>
+            </section>
+            <section id="procedimentos">
+                <h2>Procedimentos</h2>
+                <div className="procedures-grid">
+                    {Object.values(data.procedures).map((category, index) => (
+                        <div key={index} className="procedure-card">
+                            <i className={category.icon}></i>
+                            <h3>{category.title}</h3>
+                            <ul>
+                                {category.items.map((item, i) => (
+                                    <li key={i}>{item}</li>
+                                ))}
+                            </ul>
+                        </div>
+                    ))}
+                </div>
+
+                <div className="before-after-section">
+                    <h3>Resultados</h3>
+                    <Swiper
+                        modules={[Navigation, EffectFade]}
+                        effect="fade"
+                        navigation
+                        loop={true}
+                        className="before-after-slider"
+                    >
+                        {data.beforeAfter.map((item, index) => (
+                            <SwiperSlide key={index}>
+                                <div className="before-after-container">
+                                    <div className="before-after-item">
+                                        <img src={item.before} alt="Antes" />
+                                        <span className="label">Antes</span>
+                                    </div>
+                                    <div className="before-after-item">
+                                        <img src={item.after} alt="Depois" />
+                                        <span className="label">Depois</span>
+                                    </div>
+                                </div>
+                            </SwiperSlide>
+                        ))}
+                    </Swiper>
                 </div>
             </section>
             <footer>

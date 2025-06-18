@@ -1237,3 +1237,100 @@ body {
 [data-theme="light"] .footer-social a:hover {
     color: #AF862E;
 }
+
+/* Estilos para a seção de procedimentos */
+.procedures-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* Alterado para 4 colunas */
+    gap: 1.5rem; /* Reduzido o gap para caber melhor */
+    max-width: 1200px;
+    width: 100%;
+    margin: 3rem auto;
+    padding: 0 1rem;
+}
+
+.procedure-card {
+    background: #ffffff;
+    border-radius: 20px;
+    padding: 2rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+    text-align: center; /* Centralizar conteúdo */
+}
+
+.procedure-card i {
+    font-size: 2.8rem;
+    color: var(--primary);
+    margin-bottom: 1rem;
+    transition: all 0.3s ease;
+    opacity: 0.8;
+    display: block;
+}
+
+.procedure-card:hover i {
+    transform: scale(1.1);
+    opacity: 1;
+    filter: drop-shadow(0 0 8px var(--primary-glow));
+}
+
+.procedure-card h3 {
+    color: var(--primary);
+    margin-bottom: 1.5rem;
+    font-size: 1.2rem;
+    font-weight: 600;
+    line-height: 1.4;
+    text-align: center;
+    width: 100%;
+}
+
+.procedure-card ul {
+    width: 100%;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    text-align: left;
+}
+
+.procedure-card li {
+    margin-bottom: 0.8rem;
+    padding-left: 1.2rem;
+    position: relative;
+    color: #666;
+    font-size: 0.9rem;
+    line-height: 1.4;
+}
+
+.procedure-card li::before {
+    content: '•';
+    position: absolute;
+    left: 0;
+    color: var(--primary);
+    opacity: 0.8;
+}
+
+/* Ajuste responsivo atualizado */
+@media (max-width: 1200px) {
+    .procedures-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .procedures-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+    
+    .procedure-card {
+        padding: 1.5rem;
+    }
+    
+    .procedure-card h3 {
+        min-height: auto;
+    }
+}
