@@ -2,10 +2,9 @@ import React, { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import ScrollTrigger from 'gsap/ScrollTrigger';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Navigation, EffectFade, Pagination } from 'swiper/modules';
+import { Navigation, Pagination } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/navigation';
-import 'swiper/css/effect-fade';
 import 'swiper/css/pagination';
 
 gsap.registerPlugin(ScrollTrigger);
@@ -68,14 +67,6 @@ const data = {
             ]
         }
     },
-    beforeAfter: [
-        {
-            before: "/images/before1.jpg",
-            after: "/images/after1.jpg",
-            description: "Harmonização Facial"
-        },
-        // Adicione mais pares de imagens conforme necessário
-    ],
     testimonials: [
         {
             text: "Estou simplesmente apaixonada pelo resultado! Ficou super natural, exatamente como eu queria. Me sinto muito mais confiante agora.",
@@ -256,7 +247,7 @@ const HomePage = () => {
                 </div>
                 <a 
                     href="https://wa.me/5531975583013?text=Olá%20Dra%2C%20gostaria%20de%20tirar%20algumas%20dúvidas%20e%20fazer%20um%20agendamento"
-                    className="cta-button section-cta"
+                    className="cta-button"
                     target="_blank"
                     rel="noopener noreferrer"
                 >
@@ -266,9 +257,9 @@ const HomePage = () => {
             </section>
             <section id="procedimentos">
                 <h2>Procedimentos</h2>
-                <div className="procedures-grid">
+                <div className="procedures-grid" style={{ display: 'flex', justifyContent: 'center', textAlign: 'center' }}>
                     {Object.values(data.procedures).map((category, index) => (
-                        <div key={index} className="procedure-card">
+                        <div key={index} className="procedure-card" style={{ flex: '1', margin: '0 10px' }}>
                             <i className={category.icon}></i>
                             <h3>{category.title}</h3>
                             <ul>
@@ -279,41 +270,121 @@ const HomePage = () => {
                         </div>
                     ))}
                 </div>
-
-                <div className="before-after-section">
-                    <h3>Resultados</h3>
+                <a 
+                    href="https://wa.me/5531975583013?text=Olá%20Dra%2C%20gostaria%20de%20tirar%20algumas%20dúvidas%20e%20fazer%20um%20agendamento"
+                    className="cta-button"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    <i className="fab fa-whatsapp"></i>
+                    CLIQUE AQUI PARA DÚVIDAS E AGENDAMENTOS
+                </a>
+            </section>
+            <section id="resultados">
+                <h2>Resultados</h2>
+                <div className="resultados-container">
                     <Swiper
-                        modules={[Navigation, EffectFade]}
-                        effect="fade"
-                        navigation
-                        loop={true}
-                        className="before-after-slider"
+                        modules={[Navigation, Pagination]}
+                        pagination={{ clickable: true }}
+                        navigation={true}
+                        slidesPerView={1}
+                        className="resultados-slider"
                     >
-                        {data.beforeAfter.map((item, index) => (
-                            <SwiperSlide key={index}>
-                                <div className="before-after-container">
-                                    <div className="before-after-item">
-                                        <img src={item.before} alt="Antes" />
-                                        <span className="label">Antes</span>
+                        <SwiperSlide>
+                            <div className="resultado-slide">
+                                <div className="resultado-imagens">
+                                    <div className="resultado-antes">
+                                        <img src="https://raw.githubusercontent.com/yurivfernandes/drarobertamoura/refs/heads/main/public/fotos/antes_depois/1_antes.JPG" alt="Antes do procedimento" />
+                                        <span>Antes</span>
                                     </div>
-                                    <div className="before-after-item">
-                                        <img src={item.after} alt="Depois" />
-                                        <span className="label">Depois</span>
+                                    <div className="resultado-depois">
+                                        <img src="https://raw.githubusercontent.com/yurivfernandes/drarobertamoura/refs/heads/main/public/fotos/antes_depois/1_depois.JPG" alt="Depois do procedimento" />
+                                        <span>Depois</span>
                                     </div>
                                 </div>
-                            </SwiperSlide>
-                        ))}
+                            </div>
+                        </SwiperSlide>
+                        <SwiperSlide>
+                            <div className="resultado-slide">
+                                <div className="resultado-imagens">
+                                    <div className="resultado-antes">
+                                        <img src="https://raw.githubusercontent.com/yurivfernandes/drarobertamoura/refs/heads/main/public/fotos/antes_depois/2_antes.JPG" alt="Antes do procedimento" />
+                                        <span>Antes</span>
+                                    </div>
+                                    <div className="resultado-depois">
+                                        <img src="https://raw.githubusercontent.com/yurivfernandes/drarobertamoura/refs/heads/main/public/fotos/antes_depois/2_depois.JPG" alt="Depois do procedimento" />
+                                        <span>Depois</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </SwiperSlide>
+                        <SwiperSlide>
+                            <div className="resultado-slide">
+                                <div className="resultado-imagens">
+                                    <div className="resultado-antes">
+                                        <img src="https://raw.githubusercontent.com/yurivfernandes/drarobertamoura/refs/heads/main/public/fotos/antes_depois/3_antes.JPG" alt="Antes do procedimento" />
+                                        <span>Antes</span>
+                                    </div>
+                                    <div className="resultado-depois">
+                                        <img src="https://raw.githubusercontent.com/yurivfernandes/drarobertamoura/refs/heads/main/public/fotos/antes_depois/3_depois.JPG" alt="Depois do procedimento" />
+                                        <span>Depois</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </SwiperSlide>
+                        <SwiperSlide>
+                            <div className="resultado-slide">
+                                <div className="resultado-imagens">
+                                    <div className="resultado-antes">
+                                        <img src="https://raw.githubusercontent.com/yurivfernandes/drarobertamoura/refs/heads/main/public/fotos/antes_depois/4_antes.JPG" alt="Antes do procedimento" />
+                                        <span>Antes</span>
+                                    </div>
+                                    <div className="resultado-depois">
+                                        <img src="https://raw.githubusercontent.com/yurivfernandes/drarobertamoura/refs/heads/main/public/fotos/antes_depois/4_depois.JPG" alt="Depois do procedimento" />
+                                        <span>Depois</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </SwiperSlide>
+                        <SwiperSlide>
+                            <div className="resultado-slide">
+                                <div className="resultado-imagens">
+                                    <div className="resultado-antes">
+                                        <img src="https://raw.githubusercontent.com/yurivfernandes/drarobertamoura/refs/heads/main/public/fotos/antes_depois/5_antes.JPG" alt="Antes do procedimento" />
+                                        <span>Antes</span>
+                                    </div>
+                                    <div className="resultado-depois">
+                                        <img src="https://raw.githubusercontent.com/yurivfernandes/drarobertamoura/refs/heads/main/public/fotos/antes_depois/5_depois.JPG" alt="Depois do procedimento" />
+                                        <span>Depois</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </SwiperSlide>
+                        <SwiperSlide>
+                            <div className="resultado-slide">
+                                <div className="resultado-imagens">
+                                    <div className="resultado-antes">
+                                        <img src="https://raw.githubusercontent.com/yurivfernandes/drarobertamoura/refs/heads/main/public/fotos/antes_depois/6_antes.JPG" alt="Antes do procedimento" />
+                                        <span>Antes</span>
+                                    </div>
+                                    <div className="resultado-depois">
+                                        <img src="https://raw.githubusercontent.com/yurivfernandes/drarobertamoura/refs/heads/main/public/fotos/antes_depois/6_depois.JPG" alt="Depois do procedimento" />
+                                        <span>Depois</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </SwiperSlide>
                     </Swiper>
-                    <a 
-                        href="https://wa.me/5531975583013?text=Olá%20Dra%2C%20gostaria%20de%20tirar%20algumas%20dúvidas%20e%20fazer%20um%20agendamento"
-                        className="cta-button section-cta"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                    >
-                        <i className="fab fa-whatsapp"></i>
-                        CLIQUE AQUI PARA DÚVIDAS E AGENDAMENTOS
-                    </a>
                 </div>
+                <a 
+                    href="https://wa.me/5531975583013?text=Olá%20Dra%2C%20gostaria%20de%20tirar%20algumas%20dúvidas%20e%20fazer%20um%20agendamento"
+                    className="cta-button"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    <i className="fab fa-whatsapp"></i>
+                    CLIQUE AQUI PARA DÚVIDAS E AGENDAMENTOS
+                </a>
             </section>
             <section id="depoimentos">
                 <h2>Depoimentos</h2>
@@ -352,16 +423,16 @@ const HomePage = () => {
                             </SwiperSlide>
                         ))}
                     </Swiper>
-                    <a 
-                        href="https://wa.me/5531975583013?text=Olá%20Dra%2C%20gostaria%20de%20tirar%20algumas%20dúvidas%20e%20fazer%20um%20agendamento"
-                        className="cta-button section-cta"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                    >
-                        <i className="fab fa-whatsapp"></i>
-                        CLIQUE AQUI PARA DÚVIDAS E AGENDAMENTOS
-                    </a>
                 </div>
+                <a 
+                    href="https://wa.me/5531975583013?text=Olá%20Dra%2C%20gostaria%20de%20tirar%20algumas%20dúvidas%20e%20fazer%20um%20agendamento"
+                    className="cta-button"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    <i className="fab fa-whatsapp"></i>
+                    CLIQUE AQUI PARA DÚVIDAS E AGENDAMENTOS
+                </a>
             </section>
             <footer>
                 <div className="footer-content">
