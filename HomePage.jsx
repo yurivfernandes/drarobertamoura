@@ -70,7 +70,7 @@ const data = {
     testimonials: [
         {
             text: "Estou simplesmente apaixonada pelo resultado! Ficou super natural, exatamente como eu queria. Me sinto muito mais confiante agora.",
-            author: "Monica Brito",
+            author: "Raffaela Menezes Silva",
             location: "Contagem - MG"
         },
         {

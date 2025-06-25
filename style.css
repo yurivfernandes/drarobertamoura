@@ -796,17 +796,20 @@ a, button {
     .resultado-imagens {
         flex-direction: column;
         gap: 0.5rem;
-        max-height: 55vh;
+        max-height: 80vh; /* Aumenta o espaço vertical disponível */
     }
     .resultado-antes,
     .resultado-depois {
         width: 100%;
-        max-height: 25vh;
+        max-height: 38vh; /* Aumenta a altura máxima das imagens */
     }
     .resultado-antes img,
     .resultado-depois img {
-        height: 25vh;
-        object-fit: cover;
+        height: 38vh; /* Aumenta a altura das imagens */
+        object-fit: contain; /* Garante que a imagem não seja cortada */
+        width: 100%;
+        display: block;
+        border-radius: 15px;
     }
     .resultados-slider .swiper-button-prev,
     .resultados-slider .swiper-button-next {
@@ -1389,17 +1392,20 @@ body {
     .resultado-imagens {
         flex-direction: column;
         gap: 0.5rem;
-        max-height: 55vh;
+        max-height: 80vh; /* Aumenta o espaço vertical disponível */
     }
     .resultado-antes,
     .resultado-depois {
         width: 100%;
-        max-height: 25vh;
+        max-height: 38vh; /* Aumenta a altura máxima das imagens */
     }
     .resultado-antes img,
     .resultado-depois img {
-        height: 25vh;
-        object-fit: cover;
+        height: 38vh; /* Aumenta a altura das imagens */
+        object-fit: contain; /* Garante que a imagem não seja cortada */
+        width: 100%;
+        display: block;
+        border-radius: 15px;
     }
     .resultados-slider .swiper-button-prev,
     .resultados-slider .swiper-button-next {
@@ -1540,15 +1546,19 @@ body {
 
 @media (max-width: 768px) {
     .resultado-imagens {
-        max-height: 70vh;
+        max-height: 80vh; /* Aumenta o espaço vertical disponível */
     }
     .resultado-antes,
     .resultado-depois {
-        max-height: 34vh;
+        max-height: 38vh; /* Aumenta a altura máxima das imagens */
     }
     .resultado-antes img,
     .resultado-depois img {
-        height: 34vh;
+        height: 38vh; /* Aumenta a altura das imagens */
+        object-fit: contain; /* Garante que a imagem não seja cortada */
+        width: 100%;
+        display: block;
+        border-radius: 15px;
     }
 }
 
