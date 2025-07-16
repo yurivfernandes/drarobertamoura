@@ -53,7 +53,7 @@ const data = {
             items: [
                 "Suavização de linhas de expressão (testa, glabela, pés de galinha)",
                 "Elevação da cauda da sobrancelha (lifting de sobrancelha)",
-                "Sorriso gengival", "Bruxismo", "Enxaqueca"
+                "Sorriso gengival", "Bruxismo", "Enxaqueca", "Full Face"
             ]
         },
         collagen: {
