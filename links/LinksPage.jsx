@@ -12,7 +12,7 @@ const data = {
     links: [
         {
             title: "Agendar Consulta",
-            url: "https://wa.me/5531975583013?text=Olá%20Dra%2C%20encontrei%20seu%20contato%20no%20site%2C%20gostaria%20de%20agendar%20uma%20consulta.",
+            url: "https://wa.me/‪5531996590174‬?text=Olá%20Dra%2C%20encontrei%20seu%20contato%20no%20site%2C%20gostaria%20de%20agendar%20uma%20consulta.",
             icon: "fab fa-whatsapp"
         },
         {

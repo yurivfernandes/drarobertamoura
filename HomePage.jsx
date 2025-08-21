@@ -27,7 +27,7 @@ const data = {
     links: [
         {
             title: "WhatsApp",
-            url: "https://wa.me/5531975583013?text=Olá%20Dra%2C%20encontrei%20seu%20contato%20no%20site%2C%20gostaria%20de%20agendar%20uma%20consulta.",
+            url: "https://wa.me/‪5531996590174‬?text=Olá%20Dra%2C%20encontrei%20seu%20contato%20no%20site%2C%20gostaria%20de%20agendar%20uma%20consulta.",
             icon: "fab fa-whatsapp"
         },
         {
@@ -204,7 +204,7 @@ const HomePage = () => {
                     <p id="profile-title">{data.profile.title}</p>
                     <p id="profile-subtitle">{data.profile.subtitle}</p>
                     <a 
-                        href="https://wa.me/5531975583013?text=Olá%20Dra%2C%20gostaria%20de%20tirar%20algumas%20dúvidas%20e%20fazer%20um%20agendamento"
+                        href="https://wa.me/‪5531996590174‬?text=Olá%20Dra%2C%20gostaria%20de%20tirar%20algumas%20dúvidas%20e%20fazer%20um%20agendamento"
                         className="cta-button"
                         target="_blank"
                         rel="noopener noreferrer"
@@ -246,7 +246,7 @@ const HomePage = () => {
                     </div>
                 </div>
                 <a 
-                    href="https://wa.me/5531975583013?text=Olá%20Dra%2C%20gostaria%20de%20tirar%20algumas%20dúvidas%20e%20fazer%20um%20agendamento"
+                    href="https://wa.me/‪5531996590174‬?text=Olá%20Dra%2C%20gostaria%20de%20tirar%20algumas%20dúvidas%20e%20fazer%20um%20agendamento"
                     className="cta-button"
                     target="_blank"
                     rel="noopener noreferrer"
@@ -271,7 +271,7 @@ const HomePage = () => {
                     ))}
                 </div>
                 <a 
-                    href="https://wa.me/5531975583013?text=Olá%20Dra%2C%20gostaria%20de%20tirar%20algumas%20dúvidas%20e%20fazer%20um%20agendamento"
+                    href="https://wa.me/‪5531996590174‬?text=Olá%20Dra%2C%20gostaria%20de%20tirar%20algumas%20dúvidas%20e%20fazer%20um%20agendamento"
                     className="cta-button"
                     target="_blank"
                     rel="noopener noreferrer"
@@ -377,7 +377,7 @@ const HomePage = () => {
                     </Swiper>
                 </div>
                 <a 
-                    href="https://wa.me/5531975583013?text=Olá%20Dra%2C%20gostaria%20de%20tirar%20algumas%20dúvidas%20e%20fazer%20um%20agendamento"
+                    href="https://wa.me/‪5531996590174‬?text=Olá%20Dra%2C%20gostaria%20de%20tirar%20algumas%20dúvidas%20e%20fazer%20um%20agendamento"
                     className="cta-button"
                     target="_blank"
                     rel="noopener noreferrer"
@@ -425,7 +425,7 @@ const HomePage = () => {
                     </Swiper>
                 </div>
                 <a 
-                    href="https://wa.me/5531975583013?text=Olá%20Dra%2C%20gostaria%20de%20tirar%20algumas%20dúvidas%20e%20fazer%20um%20agendamento"
+                    href="https://wa.me/‪5531996590174‬?text=Olá%20Dra%2C%20gostaria%20de%20tirar%20algumas%20dúvidas%20e%20fazer%20um%20agendamento"
                     className="cta-button"
                     target="_blank"
                     rel="noopener noreferrer"
